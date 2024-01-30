@@ -9,6 +9,8 @@ body{
     color: #f1f1f1;
     background-color: #392a48;
     padding: 20px 10px;
+    opacity: 0.8;
+
 }
 
 .header h1.logo {
@@ -53,8 +55,10 @@ body{
     cursor: pointer;
 }
 footer{
+    opacity: 0.8;
     color: #f1f1f1;
-    background-color: #392a48;}
+    background-color: #392a48;
+}
 
 
 .column {
@@ -69,7 +73,7 @@ footer{
     clear: both;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:768px) {
     .centered-div {
         width: 100%;
     }
@@ -77,3 +81,35 @@ footer{
         width: 100%;
     }
 }
+form{
+    display: block;
+}
+
+input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input {
+    width: 80%;
+    background-color: #392a48;
+    border-width: 2px;
+    border-color: #f1f1f1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+  }
+    
+  input[type=submit] {
+    background-color: #392a48;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgba(87, 53, 255, 0.162)
+  }
