@@ -1,0 +1,79 @@
+body{
+    background: url('./assets/img/back.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;    /* background-color: #04AA6D; */
+}
+.header {
+    overflow: hidden;
+    color: #f1f1f1;
+    background-color: #392a48;
+    padding: 20px 10px;
+}
+
+.header h1.logo {
+    float: center;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centered-div {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #f1f1f1;
+    background-color: #392a48;    
+    width: 25%;
+
+}
+
+.button {
+    background-color: #392a48;
+    border-width: 2px;
+    border-color: #f1f1f1;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 12px;
+    cursor: pointer;
+}
+footer{
+    color: #f1f1f1;
+    background-color: #392a48;}
+
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width:600px) {
+    .centered-div {
+        width: 100%;
+    }
+    .column {
+        width: 100%;
+    }
+}
