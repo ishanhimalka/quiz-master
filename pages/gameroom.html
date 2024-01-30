@@ -15,6 +15,9 @@
     <div class="container">
         <div class="right-div">
             <h1>questions 01</h1>
+            <form id="form">
+                <button id="submit" >asdgja</button>
+            </form>
             <form action="">
                 <p>Please select your favorite Web language:</p>
                   <input type="radio" id="html" name="fav_language" value="HTML">
@@ -26,6 +29,8 @@
                 <input type="radio" id="javascript" name="fav_language" value="JavaScript">
                   <label for="javascript">JavaScript</label>
             </form>
+            <p id="demo"></p>
+
             <button class="button" onclick="document.location='./pages/loging'">Start</button>
             <button class="button" onclick="document.location='./markpage.html'">Start</button>
         </div>
@@ -47,5 +52,17 @@
         </div>
     </div>
 </footer>
+<script>
+    const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+
+let text = "";
+    for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+
+        //   document.getElementById("si").innerHTML = "<h1>Hello member</h1>";
+</script>
+<script src="../javascript/api.js"></script>
 
 </html>

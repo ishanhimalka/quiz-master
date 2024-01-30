@@ -15,9 +15,9 @@
     <div class="container">
         <div class="centered-div">
             <h1>Lets Get Ready</h1>
-            <form action='./gameroom.html'">
+            <form action='' id="personaldata">
 
-                <label for="fname">Full Name</label>
+                <label for=" fname">Full Name</label>
                 <br>
                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
                 <br>
@@ -50,5 +50,27 @@
         </div>
     </div>
 </footer>
+<script type="module" src="../javascript/firebase.js"></script>
+<script>
+   
+    let loginForm = document.getElementById("personaldata");
+  
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let username = document.getElementById("fname");
+        let gamingname = document.getElementById("gname");
+        let email = document.getElementById("email");
+        console.log(username,gamingname,email);
+
+    });
+
+    // function writeUserData(userId, name, email, imageUrl) {
+    //     firebase.database().ref('users/' + userId).set({
+    //         username: name,
+    //         email: email,
+    //         profile_picture: imageUrl
+    //     });
+    // }
+</script>
 
 </html>
