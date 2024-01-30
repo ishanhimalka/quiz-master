@@ -41,6 +41,19 @@ body{
 
 }
 
+
+.right-div {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    font-size: 18px;
+    color: #f1f1f1;
+    background-color: #392a48;    
+    width: 25%;
+
+}
 .button {
     background-color: #392a48;
     border-width: 2px;
