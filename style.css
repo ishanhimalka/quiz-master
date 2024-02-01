@@ -1,9 +1,11 @@
-body{
+body {
     background: url('./assets/img/back.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;    /* background-color: #04AA6D; */
+    background-size: cover;
+    /* background-color: #04AA6D; */
 }
+
 .header {
     overflow: hidden;
     color: #f1f1f1;
@@ -31,6 +33,7 @@ body{
     align-items: center;
     height: 100vh;
 }
+
 .container-right {
     display: flex;
     justify-content: left;
@@ -44,27 +47,31 @@ body{
     text-align: center;
     font-size: 18px;
     color: #f1f1f1;
-    background-color: #392a48;    
+    background-color: #392a48;
     width: 25%;
 
 }
+
 #questions-container {
     position: static;
     top: 50%;
     width: 100%;
-    text-align: center;
+    padding: 20px;
+    text-align: left;
     font-size: 18px;
     color: #f1f1f1;
     background-color: #392a48;
 }
+
 .right-div {
     top: 50%;
     font-size: 18px;
     color: #f1f1f1;
-    background-color: #392a48;    
+    background-color: #392a48;
     width: 25%;
 
 }
+
 .button {
     background-color: #392a48;
     border-width: 2px;
@@ -78,11 +85,12 @@ body{
     margin: 12px;
     cursor: pointer;
 }
-footer{
+
+footer {
     opacity: 0.8;
     color: #f1f1f1;
     background-color: #392a48;
-    
+
 }
 
 
@@ -102,25 +110,18 @@ footer{
     .centered-div {
         width: 100%;
     }
+
     .column {
         width: 100%;
     }
 }
-form{
+
+form {
     display: block;
 }
 
-input {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input {
+
+input[type=text] {
     width: 80%;
     background-color: #392a48;
     border-width: 2px;
@@ -129,18 +130,44 @@ input {
     padding: 14px 20px;
     margin: 8px 0;
     cursor: pointer;
-  }
-    
-  input[type=submit] {
+}
+
+input[type=email] {
+    width: 80%;
     background-color: #392a48;
-  }
-  
-  input[type=submit]:hover {
-    background-color: rgba(87, 53, 255, 0.162)
-  }
+    border-width: 2px;
+    border-color: #f1f1f1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    background-color: #392a48;
+    width: 80%;
+    background-color: #392a48;
+    border-width: 2px;
+    border-color: #f1f1f1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(87, 53, 255, 0.162);
+    width: 80%;
+    border-width: 2px;
+    border-color: #f1f1f1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
 
 
-  .popup {
+.popup {
     position: fixed;
     z-index: 1;
     left: 0;
@@ -152,6 +179,7 @@ input {
     background-color: rgba(0, 0, 0, 0.4);
     display: none;
 }
+
 .popup-content {
     background-color: white;
     margin: 10% auto;
@@ -160,10 +188,12 @@ input {
     width: 30%;
     font-weight: bolder;
 }
+
 .popup-content button {
     display: block;
     margin: 0 auto;
 }
+
 .show {
     display: block;
 }

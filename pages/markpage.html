@@ -14,23 +14,21 @@
     </header>
     <div class="container">
         <div class="centered-div">
-            <h3>Congraulation</h3>
+            <h3 id="congrats">Congraulation</h3>
             <h1 id="marks">23/40</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo reiciendis necessitatibus a dolore quis
-                minus, iure illum magni amet alias qui cumque, aperiam culpa nam suscipit quasi nemo itaque
-                consequuntur.</p>
+            <p>Thank you for joining us in this thrilling quiz adventure. Whether you triumphed or learned something new, we appreciate your enthusiasm. Until next time, keep the curiosity alive!</p>
             <button id="myButton" class="button">
                 Done
             </button>
             <div id="myPopup" class="popup">
                 <div class="popup-content">
                     <h1>
-                          Thank You for playing!
-                      </h1>
+                        Thank You for playing!
+                    </h1>
                     <p>Stay touch with us for our next game</p>
-                     <button class="button" id="closePopup" onclick="document.location='../index.html'">
-                          Close
-                      </button>
+                    <button class="button" id="closePopup" onclick="document.location='../index.html'">
+                        Close
+                    </button>
                 </div>
             </div>
         </div>
@@ -54,10 +52,21 @@
 </footer>
 <script src="../javascript/popup.js"></script>
 <script>
-    //get value from previous page using javascript
-    var marks = localStorage.getItem("marks");
-    document.getElementById("marks").innerHTML = marks;
 
-    console.log(marks);
+    var marks = localStorage.getItem("marks");
+    document.getElementById("marks").innerHTML = marks + "/" + 40;
+
+    let greeting = '';
+    if(marks >= 30){
+        greeting = "Congraulation";
+    }else if(marks >= 20 && marks2 < 30){
+        greeting = "good";
+
+    }else{
+        greeting = "Try next time";
+    }
+    document.getElementById("congrats").innerHTML = greeting;
+
 </script>
+
 </html>
