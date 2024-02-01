@@ -15,9 +15,9 @@
     <div class="container">
         <div class="centered-div">
             <h1>Lets Get Ready</h1>
-            <form action='' id="personaldata">
+            <form id="personaldata">
 
-                <label for=" fname">Full Name</label>
+                <label for="fname">Full Name</label>
                 <br>
                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
                 <br>
@@ -43,34 +43,52 @@
 
         <div class="column">
             <h2>Contact Us</h2>
-            <p> Barcelona,spain<br>
+            <p>
+                Barcelona,spain
+                <br>
                 +34 603 84 55 46
-                <br> Ishanhimalka1@gmail.com
+                <br>
+                Ishanhimalka1@gmail.com
             </p>
         </div>
     </div>
 </footer>
-<script type="module" src="../javascript/firebase.js"></script>
-<script>
-   
-    let loginForm = document.getElementById("personaldata");
-  
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let username = document.getElementById("fname");
-        let gamingname = document.getElementById("gname");
-        let email = document.getElementById("email");
-        console.log(username,gamingname,email);
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getDatabase , ref, set} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
 
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyCqpmh6HbZKNxr_Or7LocykbIDydTs2CVA",
+        authDomain: "quizmaster-3a0b4.firebaseapp.com",
+        databaseURL: "https://quizmaster-3a0b4-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "quizmaster-3a0b4",
+        storageBucket: "quizmaster-3a0b4.appspot.com",
+        messagingSenderId: "678939403995",
+        appId: "1:678939403995:web:aa30770ff1d54d0f9f4efe",
+        measurementId: "G-KNB8QNPZ3C"
+    };
+    var app = initializeApp(firebaseConfig);
+
+    
+
+    document.getElementById('personaldata').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        const db = getDatabase();
+        const name = document.getElementById("fname").value;
+        const gamingname = document.getElementById("gname").value;
+        const email = document.getElementById("email").value;
+        console.log(name, gamingname, email);
+        const use = email.replace(/[^a-z0-9]/gi, '');
+
+        set(ref(db, 'users/' + use), {
+            name: name,
+            gamingname: gamingname,
+            email: email
+        });
     });
 
-    // function writeUserData(userId, name, email, imageUrl) {
-    //     firebase.database().ref('users/' + userId).set({
-    //         username: name,
-    //         email: email,
-    //         profile_picture: imageUrl
-    //     });
-    // }
+
 </script>
 
 </html>

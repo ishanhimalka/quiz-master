@@ -15,7 +15,7 @@
     <div class="container">
         <div class="centered-div">
             <h3>Congraulation</h3>
-            <h1>23/40</h1>
+            <h1 id="marks">23/40</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo reiciendis necessitatibus a dolore quis
                 minus, iure illum magni amet alias qui cumque, aperiam culpa nam suscipit quasi nemo itaque
                 consequuntur.</p>
@@ -53,4 +53,11 @@
     </div>
 </footer>
 <script src="../javascript/popup.js"></script>
+<script>
+    //get value from previous page using javascript
+    var marks = localStorage.getItem("marks");
+    document.getElementById("marks").innerHTML = marks;
+
+    console.log(marks);
+</script>
 </html>

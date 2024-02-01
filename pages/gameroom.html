@@ -14,55 +14,110 @@
     </header>
     <div class="container">
         <div class="right-div">
-            <h1>questions 01</h1>
-            <form id="form">
-                <button id="submit" >asdgja</button>
-            </form>
-            <form action="">
-                <p>Please select your favorite Web language:</p>
-                  <input type="radio" id="html" name="fav_language" value="HTML">
-                  <label for="html">HTML</label><br>
-                  <input type="radio" id="css" name="fav_language" value="CSS">
-                  <label for="css">CSS</label><br>
-                  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                  <label for="javascript">JavaScript</label><br>
-                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                  <label for="javascript">JavaScript</label>
-            </form>
-            <p id="demo"></p>
-
-            <button class="button" onclick="document.location='./pages/loging'">Start</button>
-            <button class="button" onclick="document.location='./markpage.html'">Start</button>
+            <div id="questions-container">
+            </div>
         </div>
     </div>
+
+    <footer>
+        <div class="row">
+            <div class="column">
+                <h2>Ishan's Games</h2>
+                <p>Copyright &#169; 2024 Ishan Himalka. All rights reserved.</p>
+            </div>
+
+            <div class="column">
+                <h2>Contact Us</h2>
+                <p> Barcelona,spain<br>
+                    +34 603 84 55 46
+                    <br> Ishanhimalka1@gmail.com
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
-<footer>
-    <div class="row">
-        <div class="column">
-            <h2>Ishan's Games</h2>
-            <p>Copyright &#169; 2024 Ishan Himalka. All rights reserved.</p>
-        </div>
 
-        <div class="column">
-            <h2>Contact Us</h2>
-            <p> Barcelona,spain<br>
-                +34 603 84 55 46
-                <br> Ishanhimalka1@gmail.com
-            </p>
-        </div>
-    </div>
-</footer>
 <script>
-    const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+    fetch('https://opentdb.com/api.php?amount=40&category=18&difficulty=medium&type=multiple')
+        .then(response => response.json())
+        .then(data => {
+            const questionContainer = document.getElementById('questions-container');
+            let currentQuestionIndex = 0;
 
-let text = "";
-    for (let i = 0; i < cars.length; i++) {
-  text += cars[i] + "<br>";
-}
-document.getElementById("demo").innerHTML = text;
+            function displayQuestion(index) {
+                questionContainer.innerHTML = '';
+                const result = data.results[index];
+                const questionElement = document.createElement('p');
+                questionElement.textContent = `Question ${index + 1}: ${result.question}`;
+                questionContainer.appendChild(questionElement);
 
-        //   document.getElementById("si").innerHTML = "<h1>Hello member</h1>";
+                const answers = result.incorrect_answers.concat(result.correct_answer);
+
+                const shuffledAnswers = shuffleArray(answers);
+                shuffledAnswers.forEach((answer, i) => {
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = `answer_${index}_${i}`;
+                    input.name = `question_${index}`;
+                    input.value = answer;
+                    const label = document.createElement('label');
+                    label.htmlFor = `answer_${index}_${i}`;
+                    label.textContent = answer;
+
+                    questionContainer.appendChild(input);
+                    questionContainer.appendChild(label);
+                    questionContainer.appendChild(document.createElement('br'));
+
+                });
+
+                const submitButton = document.createElement('button');
+                submitButton.textContent = 'Submit';
+                submitButton.className = 'button';
+                submitButton.addEventListener('click', () => {
+                    const selectedAnswer = document.querySelector(`input[name=question_${index}]:checked`).value;
+                    const correctAnswer = result.correct_answer;
+
+                    localStorage.setItem(`answer_${index}`, selectedAnswer);
+
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < data.results.length) {
+                        displayQuestion(currentQuestionIndex);
+                    } else {
+                        questionContainer.innerHTML = 'All questions have been answered.';
+                    }
+
+                    if (currentQuestionIndex === data.results.length) {
+                        let correctAnswers = 0;
+                        for (let i = 0; i < data.results.length; i++) {
+                            const savedAnswer = localStorage.getItem(`answer_${i}`);
+                            const correctAnswer = data.results[i].correct_answer;
+                            if (savedAnswer === correctAnswer) {
+                                correctAnswers++;
+                            }
+                        }
+                        let mark =  correctAnswers + "/" + 40;
+                        localStorage.setItem("marks", mark );
+                        document.location = "../pages/markpage.html";
+                    }
+                });
+
+                questionContainer.appendChild(submitButton);
+            }
+
+            displayQuestion(currentQuestionIndex);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
 </script>
-<script src="../javascript/api.js"></script>
 
 </html>

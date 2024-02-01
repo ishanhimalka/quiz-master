@@ -10,6 +10,9 @@ body{
     background-color: #392a48;
     padding: 20px 10px;
     opacity: 0.8;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
 }
 
@@ -28,6 +31,11 @@ body{
     align-items: center;
     height: 100vh;
 }
+.container-right {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
 
 .centered-div {
     position: absolute;
@@ -40,14 +48,17 @@ body{
     width: 25%;
 
 }
-
-
-.right-div {
-    position: absolute;
+#questions-container {
+    position: static;
     top: 50%;
     width: 100%;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    font-size: 18px;
+    color: #f1f1f1;
+    background-color: #392a48;
+}
+.right-div {
+    top: 50%;
     font-size: 18px;
     color: #f1f1f1;
     background-color: #392a48;    
@@ -71,6 +82,7 @@ footer{
     opacity: 0.8;
     color: #f1f1f1;
     background-color: #392a48;
+    
 }
 
 
